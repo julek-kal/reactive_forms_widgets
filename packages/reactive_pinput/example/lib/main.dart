@@ -44,16 +44,6 @@ class MyApp extends StatelessWidget {
                     ReactivePinPut<String>(
                       formControlName: 'input',
                       fieldsCount: 5,
-                      submittedFieldDecoration: _pinPutDecoration.copyWith(
-                        borderRadius: BorderRadius.circular(20.0),
-                      ),
-                      selectedFieldDecoration: _pinPutDecoration,
-                      followingFieldDecoration: _pinPutDecoration.copyWith(
-                        borderRadius: BorderRadius.circular(5.0),
-                        border: Border.all(
-                          color: Colors.deepPurpleAccent.withOpacity(.5),
-                        ),
-                      ),
                     ),
                     const SizedBox(height: 16),
                     ElevatedButton(

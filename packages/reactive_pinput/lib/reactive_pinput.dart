@@ -6,8 +6,8 @@ library reactive_pinput;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:pinput/pinput.dart';
 import 'package:reactive_forms/reactive_forms.dart';
-import 'package:pinput/pin_put/pin_put.dart';
 
 /// A [ReactivePinPut] that contains a [PinPut].
 ///
@@ -95,9 +95,9 @@ class ReactivePinPut<T> extends ReactiveFormField<T, String> {
     TextCapitalization textCapitalization = TextCapitalization.none,
     TextInputAction? textInputAction,
     bool autofocus = false,
-    ToolbarOptions? toolbarOptions,
-    String? obscureText,
-    List<TextInputFormatter>? inputFormatters,
+    ToolbarOptions toolbarOptions = const ToolbarOptions(paste: true),
+    bool obscureText = false,
+    List<TextInputFormatter> inputFormatters = const [],
     Brightness? keyboardAppearance,
     FocusNode? focusNode,
     Widget? preFilledWidget,
@@ -105,10 +105,10 @@ class ReactivePinPut<T> extends ReactiveFormField<T, String> {
     List<int> separatorPositions = const [],
     SizedBox separator = const SizedBox(width: 15.0),
     TextStyle? textStyle,
-    BoxDecoration? submittedFieldDecoration,
-    BoxDecoration? selectedFieldDecoration,
-    BoxDecoration? followingFieldDecoration,
-    BoxDecoration? disabledDecoration,
+    PinTheme? submittedFieldDecoration,
+    PinTheme? selectedFieldDecoration,
+    PinTheme? followingFieldDecoration,
+    PinTheme? disabledDecoration,
     double? eachFieldWidth,
     double? eachFieldHeight,
     MainAxisAlignment fieldsAlignment = MainAxisAlignment.spaceBetween,
@@ -131,7 +131,7 @@ class ReactivePinPut<T> extends ReactiveFormField<T, String> {
     bool withCursor = false,
     Widget? cursor,
     MainAxisSize mainAxisSize = MainAxisSize.max,
-    AutovalidateMode autovalidateMode = AutovalidateMode.disabled,
+    PinputAutovalidateMode autovalidateMode = PinputAutovalidateMode.disabled,
     ValueChanged<String>? onSubmit,
     FormFieldSetter<String>? onSaved,
     bool enableInteractiveSelection = true,
@@ -149,7 +149,7 @@ class ReactivePinPut<T> extends ReactiveFormField<T, String> {
 
             state._setFocusNode(focusNode);
 
-            return PinPut(
+            return Pinput(
               controller: state._textController,
               focusNode: state.focusNode,
               keyboardType: keyboardType,
@@ -163,37 +163,27 @@ class ReactivePinPut<T> extends ReactiveFormField<T, String> {
               inputFormatters: inputFormatters,
               enabled: field.control.enabled,
               keyboardAppearance: keyboardAppearance,
-              fieldsCount: fieldsCount,
-              onSubmit: onSubmit,
-              onSaved: onSaved,
+              length: fieldsCount,
+              onSubmitted: onSubmit,
               onClipboardFound: onClipboardFound,
               preFilledWidget: preFilledWidget,
               separatorPositions: separatorPositions,
               separator: separator,
-              textStyle: textStyle,
-              submittedFieldDecoration: submittedFieldDecoration,
-              selectedFieldDecoration: selectedFieldDecoration,
-              followingFieldDecoration: followingFieldDecoration,
-              disabledDecoration: disabledDecoration,
-              eachFieldWidth: eachFieldWidth,
-              eachFieldHeight: eachFieldHeight,
-              fieldsAlignment: fieldsAlignment,
-              eachFieldAlignment: eachFieldAlignment,
-              eachFieldMargin: eachFieldMargin,
-              eachFieldPadding: eachFieldPadding,
-              eachFieldConstraints: eachFieldConstraints,
-              inputDecoration: effectiveDecoration,
+              submittedPinTheme: submittedFieldDecoration,
+              focusedPinTheme: selectedFieldDecoration,
+              followingPinTheme: followingFieldDecoration,
+              disabledPinTheme: disabledDecoration,
+              defaultPinTheme: submittedFieldDecoration,
+              mainAxisAlignment: fieldsAlignment,
+              pinContentAlignment: eachFieldAlignment,
               animationCurve: animationCurve,
               animationDuration: animationDuration,
               pinAnimationType: pinAnimationType,
               slideTransitionBeginOffset: slideTransitionBeginOffset,
-              checkClipboard: checkClipboard,
               useNativeKeyboard: useNativeKeyboard,
-              autovalidateMode: autovalidateMode,
-              withCursor: withCursor,
+              pinputAutovalidateMode: autovalidateMode,
+              showCursor: withCursor,
               cursor: cursor,
-              mainAxisSize: mainAxisSize,
-              enableInteractiveSelection: enableInteractiveSelection,
             );
           },
         );
