@@ -194,7 +194,6 @@ class ReactivePinPut<T> extends ReactiveFormField<T, String> {
               obscuringCharacter: obscuringCharacter,
               obscuringWidget: obscuringWidget,
               androidSmsAutofillMethod: androidSmsAutofillMethod,
-              listenForMultipleSmsOnAndroid: listenForMultipleSmsOnAndroid,
               mainAxisAlignment: mainAxisAlignment,
               crossAxisAlignment: crossAxisAlignment,
               pinContentAlignment: pinContentAlignment,
