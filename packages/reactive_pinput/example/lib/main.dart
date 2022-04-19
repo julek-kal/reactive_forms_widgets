@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
                   children: [
                     ReactivePinPut<String>(
                       formControlName: 'input',
-                      fieldsCount: 5,
+                      length: 5,
                     ),
                     const SizedBox(height: 16),
                     ElevatedButton(
