@@ -112,7 +112,8 @@ class ReactivePinPut<T> extends ReactiveFormField<T, String> {
     Duration animationDuration = const Duration(milliseconds: 160),
     PinAnimationType pinAnimationType = PinAnimationType.slide,
     Offset? slideTransitionBeginOffset,
-    bool checkClipboard = false,
+    bool enabled = true,
+    bool readOnly = false,
     bool useNativeKeyboard = true,
     Widget? cursor,
     MainAxisSize mainAxisSize = MainAxisSize.max,
@@ -136,7 +137,6 @@ class ReactivePinPut<T> extends ReactiveFormField<T, String> {
     bool enableSuggestions = true,
     bool showCursor = true,
     bool toolbarEnabled = true,
-    bool readOnly = false,
     bool forceErrorState = false,
     String? smsCodeMatcher = '\\d{4,7}',
     ValueChanged<String>? onCompleted,
@@ -161,6 +161,7 @@ class ReactivePinPut<T> extends ReactiveFormField<T, String> {
             state._setFocusNode(focusNode);
 
             return Pinput(
+              crossAxisAlignment: crossAxisAlignment,
               controller: state._textController,
               focusNode: state.focusNode,
               keyboardType: keyboardType,
@@ -195,7 +196,6 @@ class ReactivePinPut<T> extends ReactiveFormField<T, String> {
               obscuringWidget: obscuringWidget,
               androidSmsAutofillMethod: androidSmsAutofillMethod,
               mainAxisAlignment: mainAxisAlignment,
-              crossAxisAlignment: crossAxisAlignment,
               pinContentAlignment: pinContentAlignment,
               errorTextStyle: errorTextStyle,
               // errorBuilder: errorBuilder,
