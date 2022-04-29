@@ -11,7 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_typeahead: ^3.2.4
-  reactive_forms: ^11.0.1
+  reactive_forms: ^12.0.0
 
 dev_dependencies:
   flutter_test:
