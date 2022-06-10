@@ -1,6 +1,6 @@
 name: reactive_color_picker
 description: Wrapper around `flutter_colorpicker` to use with `reactive_forms`.
-version: 0.1.0
+version: 0.2.1
 repository: https://github.com/artflutter/reactive_forms_widgets
 
 environment:
@@ -16,7 +16,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^1.0.4
+  flutter_lints: ^2.0.1
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

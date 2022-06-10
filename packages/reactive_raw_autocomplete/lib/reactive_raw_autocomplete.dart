@@ -86,7 +86,7 @@ class ReactiveRawAutocomplete<T, V extends Object>
   /// ```
   ///
   /// For documentation about the various parameters, see the [RawAutocomplete] class
-  /// and [new RawAutocomplete], the constructor.
+  /// and [RawAutocomplete], the constructor.
   ReactiveRawAutocomplete({
     Key? key,
     String? formControlName,
@@ -152,6 +152,8 @@ class ReactiveRawAutocomplete<T, V extends Object>
     ui.BoxHeightStyle selectionHeightStyle = ui.BoxHeightStyle.tight,
     ui.BoxWidthStyle selectionWidthStyle = ui.BoxWidthStyle.tight,
     this.onControllerInit,
+    bool scribbleEnabled = true,
+    bool enableIMEPersonalizedLearning = true,
   }) : super(
           key: key,
           formControl: formControl,
@@ -238,6 +240,9 @@ class ReactiveRawAutocomplete<T, V extends Object>
                       selectionControls: selectionControls,
                       selectionHeightStyle: selectionHeightStyle,
                       selectionWidthStyle: selectionWidthStyle,
+                      scribbleEnabled: scribbleEnabled,
+                      enableIMEPersonalizedLearning:
+                          enableIMEPersonalizedLearning,
                     );
                   },
               optionsViewBuilder: optionsViewBuilder,

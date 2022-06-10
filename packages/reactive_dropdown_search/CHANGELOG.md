@@ -1,3 +1,12 @@
+## [0.9.0]
+* package version bump
+
+## [0.8.0]
+* package version bump
+
+## [0.7.0]
+* reactive_forms bump
+
 ## [0.6.0]
 * package version bump
 

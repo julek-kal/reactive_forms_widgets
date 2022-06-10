@@ -107,7 +107,7 @@ class ReactiveCupertinoTextField<T> extends ReactiveFormField<T, String> {
   /// ```
   ///
   /// For documentation about the various parameters, see the [TextField] class
-  /// and [new TextField], the constructor.
+  /// and [TextField], the constructor.
   ReactiveCupertinoTextField({
     Key? key,
     String? formControlName,
@@ -177,6 +177,7 @@ class ReactiveCupertinoTextField<T> extends ReactiveFormField<T, String> {
       fontWeight: FontWeight.w400,
       color: CupertinoColors.placeholderText,
     ),
+    bool scribbleEnabled = true,
   }) : super(
           key: key,
           formControl: formControl,
@@ -257,6 +258,7 @@ class ReactiveCupertinoTextField<T> extends ReactiveFormField<T, String> {
                 scrollPhysics: scrollPhysics,
                 autofillHints: autofillHints,
                 restorationId: restorationId,
+                scribbleEnabled: scribbleEnabled,
               ),
             );
           },
