@@ -10,7 +10,9 @@ class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   FormGroup buildForm() => fb.group({
-        'input': FormControl<String>(value: null),
+        'input': FormControl<String>(
+            value: null,
+            validators: [Validators.minLength(5), Validators.maxLength(5)]),
       });
 
   @override

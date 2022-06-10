@@ -200,7 +200,7 @@ class ReactivePinPut<T> extends ReactiveFormField<T, String> {
               errorTextStyle: errorTextStyle,
               // errorBuilder: errorBuilder,
               errorText: state.errorText,
-              forceErrorState: forceErrorState,
+              forceErrorState: state.errorText != null,
               mouseCursor: mouseCursor,
               onAppPrivateCommand: onAppPrivateCommand,
               restorationId: restorationId,
